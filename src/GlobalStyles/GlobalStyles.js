@@ -4,10 +4,16 @@ import { normalize } from 'styled-normalize'
 const GlobalStyles = createGlobalStyle`
     ${normalize}
 
+    *{
+        box-sizing: border-box;
+    }
+
     body{
         overflow-x: hidden;
         padding: 0;
         margin: 0;
+        font-family: 'Roboto', sans-serif;
+
     }
 
     a{

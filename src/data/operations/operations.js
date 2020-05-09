@@ -1,9 +1,9 @@
 import actions from '../actions'
 
-
+let currentPage = 1;
 
 const fetchPokemon = async()=>{
-    const response = await fetch("https://api.pokemontcg.io/v1/cards?Count=5");
+    const response = await fetch(`https://api.pokemontcg.io/v1/cards?page=${currentPage++}&pageSize=4`);
     const json = await response.json();
 
     return json;
@@ -12,15 +12,12 @@ const fetchPokemon = async()=>{
 export const getAllPokemons = () =>
     async(dispatch)=>{
         dispatch(actions.loading())
-
         try{
             const Pokemons = await fetchPokemon();
-            dispatch(actions.addCards(Pokemons.cards));
+            dispatch(actions.addCards(Pokemons.cards))
         }catch(error){
-            console.log(error)
-            dispatch(actions.failure(error))
-        }
-        
+            dispatch(actions.failure(true))
+        } 
         
     }
 

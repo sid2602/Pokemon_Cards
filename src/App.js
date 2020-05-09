@@ -1,12 +1,15 @@
 import React from 'react';
 
 
-import PokemonContainer from './components/pokemonsContainer/PokemonsContainer'
+import Main from './components/main/Main'
+
+import Header from './components/header'
 
 function App() {
   return (
     <div className="App">
-      <PokemonContainer/>
+      <Header/>
+      <Main/>
     </div>
   );
 }

@@ -20,16 +20,21 @@ const Pokemon = (state = initial_state,action) =>{
         case constants.POKEMON_ADD_SUCCES:
             
             let cards = [...state.cards]
+            let filter = [...state.filter];
 
             action.cards.forEach((element)=>{
                 cards.push(element)
+            })
+
+            action.cards.forEach((element)=>{
+                filter.push(element)
             })
 
             return{
                 cards,
                 loading: false,
                 error: false,
-                filter: cards
+                filter
             }
         
         case constants.POKEMON_FILTER:
